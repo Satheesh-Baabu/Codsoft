@@ -9,11 +9,11 @@
 <body>
     <div class="calculator">
         <h1>Simple Calculator</h1>
-        <input type="text" id="input">
+        <input type="text" id="input" onkeypress="keyboardkey(event)">
         
         <div id="button">
             <button class="btn" onclick="dclear()">C</button>
-            <button class="btn" onclick="sclear()">X</button>
+            <button class="btn" onclick="sclear()">DEL</button>
             <button class="btn" onclick="displaybox('/')">/</button>
             <button class="btn" onclick="displaybox('*')">*</button>
         </div>
@@ -36,7 +36,7 @@
             <button class="btn" onclick="displaybox('%')">%</button>
         </div>
         <div id="button">
-            <button class="btn" onclick="displaybox(0)">0</button>
+            <button class="btn" onclick="dclear()">CE</button>
             <button class="btn" onclick="displaybox(0)">0   </button>
             <button class="btn" onclick="displaybox('.')">.</button>
             <button class="btn" onclick="equalto()">=</button>
@@ -65,7 +65,17 @@
         var input=document.getElementById('input').value;
         var res=eval(input);    
         document.getElementById('input').value=res;
-
+    }
+    function keyboardkey(event)
+    {
+        if(event.keyCode==13)
+        {
+            equalto();     
+        }
+        if(event.keyCode==8)
+        {
+            sclear();
+        }
     }
 </script>
 </html>
